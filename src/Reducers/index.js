@@ -1,22 +1,23 @@
-import {combineReducer} from 'redux';
+import { combineReducers } from 'redux';
 
-const songsReducer =()=>{
-    return [
-        {title:'No Scrubs', duration:'4:05'},
-        {title:'Macarena', duration:'3:01'},
-        {title:'Pinpinela', duration:'2:06'},
-        {title:'I wanna be like you', duration:'5:00'},
-    ];
+const songsReducer = () => {
+  return [
+    { title: 'No Scrubs', duration: '4:05' },
+    { title: 'Macarena', duration: '2:30' },
+    { title: 'All Star', duration: '3:15' },
+    { title: 'I Want it That Way', duration: '1:45' }
+  ];
 };
 
-const selectedSongReducer =(selectedSong=null, action)=>{
-    if (action.type === 'SONG_SELECTED') {
-        return action.payload;
-    }
+const selectedSongReducer = (selectedSong = null, action) => {
+  if (action.type === 'SONG_SELECTED') {
+    return action.payload;
+  }
+  //missing return
+  return selectedSong;
 };
 
-
-export default combineReducer({
-    songs: songsReducer,
-    selectedSong: selectedSongReducer
+export default combineReducers({
+  songs: songsReducer,
+  selectedSong: selectedSongReducer
 });
